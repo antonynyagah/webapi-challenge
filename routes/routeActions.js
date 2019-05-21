@@ -33,7 +33,7 @@ router.post("/", async (req, res) => {
       const newAction = await db.insert(req.body);
       res.json({ message: newAction });
     } else {
-      res.status(404).json({ message: "Ivalid project id" });
+      res.status(404).json({ message: "Invalid project id" });
     }
   } catch (err) {
     res.status(500).json({ message: "Error: server conflict" });
@@ -66,7 +66,7 @@ async function validateID(req, res, next) {
   } else {
     const idValidate = await db.get(req.params.id);
     if (!idValidate) {
-      res.status(404).json({ message: "invalid user ID" });
+      res.status(404).json({ message: "Invalid user ID" });
     }
   }
   next();
